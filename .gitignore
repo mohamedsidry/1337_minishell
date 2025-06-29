@@ -3,6 +3,5 @@
 *.text
 *.txt
 *.out
-/utlib
 *.a
 *.env
