@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   typedef.h                                          :+:      :+:    :+:   */
+/*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 21:57:22 by msidry            #+#    #+#             */
-/*   Updated: 2025/06/30 22:09:10 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
+/*   Updated: 2025/06/30 22:07:11 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPEDEF_H
-# define TYPEDEF_H
+#include "include/minishell.h"
 
-#endif // TYPEDEF_H
+int	main(int argc, char *argv[], char *env[])
+{
+	return (0);
+}

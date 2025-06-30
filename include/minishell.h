@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   typedef.h                                          :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 21:57:22 by msidry            #+#    #+#             */
-/*   Updated: 2025/06/30 22:09:10 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 21:56:34 by msidry            #+#    #+#             */
+/*   Updated: 2025/06/30 22:08:51 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPEDEF_H
-# define TYPEDEF_H
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
-#endif // TYPEDEF_H
+# include "const.h"
+# include "error.h"
+# include "typedef.h"
+# include "../libs/libft/libft.h"
+
+#endif // MINISHELL_H
