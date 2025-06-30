@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 03:17:45 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 00:39:45 by msidry           ###   ########.fr       */
+/*   Created: 2025/07/01 00:14:10 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:15:05 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef UTILS_H
+#define UTILS_H
 
-char	*ft_strdup(const char *str)
-{
-	char	*ptr;
-	size_t	bytes;
+char *getkey(char *str, int sep);
+char *getvalue(char *str, int sep);
 
-	bytes = ft_strlen(str) + 1;
-	ptr = malloc(sizeof(char) * bytes);
-	if (!ptr)
-		return (0);
-	ft_strlcpy(ptr, str, ft_strlen(str) + 1);
-	return (ptr);
-}
+#endif // UTILS_H

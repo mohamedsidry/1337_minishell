@@ -6,12 +6,14 @@
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 21:56:04 by msidry            #+#    #+#             */
-/*   Updated: 2025/06/30 22:18:58 by msidry           ###   ########.fr       */
+/*   Updated: 2025/07/01 00:57:25 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_H
 
 # define TEST_H
+
+void env_print(t_env *env);
 
 #endif // TEST_H

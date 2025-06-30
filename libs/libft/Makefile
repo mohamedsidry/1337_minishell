@@ -49,21 +49,21 @@ STAGE = -c
 # ---------------- RULES ------------------
 
 %.o: %.c $(HDEPS)
-	$(CC) $(STAGE) $(CFLAGS) $< -o $@
+	@$(CC) $(STAGE) $(CFLAGS) $< -o $@
 
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 all : $(NAME)
 
 
 clean:
-	rm -f $(OBJS) $(BONUSOBJS)
+	@rm -f $(OBJS) $(BONUSOBJS)
 
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean $(NAME)
 
@@ -81,7 +81,7 @@ BONUSSRCS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 BONUSOBJS = $(BONUSSRCS:.c=.o)
 
 bonus: $(BONUSOBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(BONUSOBJS)
+	@$(AR) $(ARFLAGS) $(NAME) $(BONUSOBJS)
 
 
 .PHONY:  clean

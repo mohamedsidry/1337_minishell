@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   getvalue.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 03:17:45 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 00:39:45 by msidry           ###   ########.fr       */
+/*   Created: 2025/07/01 00:13:10 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:55:20 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/minishell.h"
 
-char	*ft_strdup(const char *str)
+char *getvalue(char *str, int sep)
 {
-	char	*ptr;
-	size_t	bytes;
+    char *target;
+    char *key;
 
-	bytes = ft_strlen(str) + 1;
-	ptr = malloc(sizeof(char) * bytes);
-	if (!ptr)
-		return (0);
-	ft_strlcpy(ptr, str, ft_strlen(str) + 1);
-	return (ptr);
+    if (!str)
+        return (NULL);
+    target = ft_strchr(str, sep);
+    if (!target)
+        return (NULL);
+    key = ft_substr(target + 1, 0, ft_strlen(target));
+    return (key);
 }
