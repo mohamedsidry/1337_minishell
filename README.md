@@ -8,15 +8,15 @@ Parsing is the action of turning user raw input string to tokens , expand, valid
 
 #### JOB TO BE DONE  :
 
-- [ ]  Init repo .
-- [ ] Create Makefile to manage compiling .
-- [ ] Create main program entry point .
-- [ ] Create function that manage env vars CRUD operations .
+- [x]  Init repo .
+- [x] Create Makefile to manage compiling .
+- [x] Create main program entry point .
+- [ ] Create function that manage env vars CRUD operations (*on progress . . .*) .
 - [ ] Create functions for debuging and testing .
 - [ ] Display prompt and read user input .
 - [ ] Lexical tokenization, turn each part of string to meaningful unit .
-- [ ] Expanding env variables (*on progress . . .*) .
-- [ ] Validation of syntax (*on progress . . .*) .
+- [ ] Expanding env variables .
+- [ ] Validation of syntax .
 - [ ] Generate a list of commands .
 - [ ] Follow norms .
 - [ ] Full test.
