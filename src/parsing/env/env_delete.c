@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   env_delete.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 23:22:32 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:46:07 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "../../../include/minishell.h"
 
-void ll(void);
-
-int	main(int argc, char *argv[], char *env[])
+void env_delete(t_env *envnode)
 {
-	//char	*input;
-	t_env	*myenv;
-	(void)argc,
-	(void)argv,
-	//t_commands *cmds;
-	myenv = NULL;
-	env_manager(&myenv, env, INIT);
-	print_env(myenv);
-	env_manager(&myenv, env, RESET);
-	atexit(ll);
-	return (0);
-}
-
-void ll(void)
-{
-	system("leaks -q minishell");
+    if (!envnode)
+        return ;
+    free(envnode->key);
+    free(envnode->value);
+    free(envnode);
 }

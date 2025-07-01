@@ -24,8 +24,8 @@ PARSING =	src/parsing/env/env_addback.c src/parsing/env/env_clear.c \
 			src/parsing/env/env_create.c src/parsing/env/env_delete.c \
 			src/parsing/env/env_find.c src/parsing/env/env_last.c \
 			src/parsing/env/env_manager.c 
-
-SRCS = $(MAIN) $(UTILS) $(PARSING)
+TEST 	= 	test/env/print_env.c
+SRCS = $(MAIN) $(UTILS) $(PARSING) $(TEST)
 
 INCLUDES =	include/minishell.h include/const.h include/error.h \
 			include/test.h include/typedef.h \

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   env_clear.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 23:25:25 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:45:57 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "../../../include/minishell.h"
 
-void ll(void);
 
-int	main(int argc, char *argv[], char *env[])
+void env_clear(t_env **env)
 {
-	//char	*input;
-	t_env	*myenv;
-	(void)argc,
-	(void)argv,
-	//t_commands *cmds;
-	myenv = NULL;
-	env_manager(&myenv, env, INIT);
-	print_env(myenv);
-	env_manager(&myenv, env, RESET);
-	atexit(ll);
-	return (0);
-}
+    t_env   *tmp;
+    t_env   *current;
 
-void ll(void)
-{
-	system("leaks -q minishell");
+    
+    if (!env || !(*env))
+        return ;
+    current = *env;
+    while (current)
+    {
+        tmp = current->next;
+        env_delete(current);
+        current = tmp;
+    }
+    *env = NULL;
 }

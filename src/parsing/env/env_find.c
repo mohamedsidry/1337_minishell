@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   env_find.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 23:35:08 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:50:30 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "../../../include/minishell.h"
 
-void ll(void);
-
-int	main(int argc, char *argv[], char *env[])
+t_env *env_find(t_env *env, char *key)
 {
-	//char	*input;
-	t_env	*myenv;
-	(void)argc,
-	(void)argv,
-	//t_commands *cmds;
-	myenv = NULL;
-	env_manager(&myenv, env, INIT);
-	print_env(myenv);
-	env_manager(&myenv, env, RESET);
-	atexit(ll);
-	return (0);
-}
-
-void ll(void)
-{
-	system("leaks -q minishell");
+    if (!env || !key)
+        return (NULL);
+    while (env)
+    {
+        if ((ft_strlen(key) == ft_strlen(env->key)) && 
+            !ft_strncmp(env->key, key, ft_strlen(key)))
+            return (env);
+        env = env->next;
+    }
+    return (NULL);
 }

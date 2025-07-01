@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   env_addback.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 23:16:03 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:45:53 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "../../../include/minishell.h"
 
-void ll(void);
-
-int	main(int argc, char *argv[], char *env[])
+void    env_addback(t_env **env_list, t_env *env)
 {
-	//char	*input;
-	t_env	*myenv;
-	(void)argc,
-	(void)argv,
-	//t_commands *cmds;
-	myenv = NULL;
-	env_manager(&myenv, env, INIT);
-	print_env(myenv);
-	env_manager(&myenv, env, RESET);
-	atexit(ll);
-	return (0);
-}
+    t_env   *tail;
 
-void ll(void)
-{
-	system("leaks -q minishell");
+    if (!env_list)
+        return ;
+    if (!(*env_list))
+    {
+        *env_list = env;
+        return ;
+    }
+    tail = env_last(*env_list);
+    if (tail)
+        tail->next = env;
 }

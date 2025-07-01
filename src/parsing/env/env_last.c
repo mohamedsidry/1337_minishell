@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   env_last.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 23:32:35 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:46:20 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "../../../include/minishell.h"
 
-void ll(void);
-
-int	main(int argc, char *argv[], char *env[])
+t_env   *env_last(t_env *env)
 {
-	//char	*input;
-	t_env	*myenv;
-	(void)argc,
-	(void)argv,
-	//t_commands *cmds;
-	myenv = NULL;
-	env_manager(&myenv, env, INIT);
-	print_env(myenv);
-	env_manager(&myenv, env, RESET);
-	atexit(ll);
-	return (0);
-}
-
-void ll(void)
-{
-	system("leaks -q minishell");
+    if (!env)
+        return (NULL);
+    while (env->next)
+        env = env->next;
+    return (env);
 }

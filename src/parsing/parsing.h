@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Created: 2025/06/30 22:04:01 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/01 00:43:31 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#ifndef PARSING_H
+#define PARSING_H
 
-void ll(void);
+void    env_manager(t_env **myenv, char *env[], t_task task);
 
-int	main(int argc, char *argv[], char *env[])
-{
-	//char	*input;
-	t_env	*myenv;
-	(void)argc,
-	(void)argv,
-	//t_commands *cmds;
-	myenv = NULL;
-	env_manager(&myenv, env, INIT);
-	print_env(myenv);
-	env_manager(&myenv, env, RESET);
-	atexit(ll);
-	return (0);
-}
+t_env   *env_create(char *key, char *value, t_visibility visibility);
+void    env_addback(t_env **env_list, t_env *env);
+void    env_delete(t_env *envnode);
+void    env_clear(t_env **env);
+t_env   *env_last(t_env *env);
+t_env   *env_find(t_env *env, char *key);
 
-void ll(void)
-{
-	system("leaks -q minishell");
-}
+#endif // PARSING_H
