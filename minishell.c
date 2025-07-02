@@ -6,7 +6,7 @@
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 22:01:02 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:42:37 by msidry           ###   ########.fr       */
+/*   Updated: 2025/07/02 07:45:00 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,14 @@ int	main(int argc, char *argv[], char *env[])
 	(void)argv,
 	//t_commands *cmds;
 	myenv = NULL;
-	env_manager(&myenv, env, INIT);
+	env_manager(&myenv, env, INIT | UPDATE);
+	// while (true)
+	// {
+	// 	  proreadline(&input, &myenv);
+	// 	  proaddhistory(input);
+	// }
 	print_env(myenv);
-	env_manager(&myenv, env, RESET);
+	env_manager(&myenv, env, DELETE);
 	atexit(ll);
 	return (0);
 }

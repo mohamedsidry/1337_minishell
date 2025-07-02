@@ -23,7 +23,8 @@ UTILS 	=	src/utils/getkey.c src/utils/getvalue.c
 PARSING =	src/parsing/env/env_addback.c src/parsing/env/env_clear.c \
 			src/parsing/env/env_create.c src/parsing/env/env_delete.c \
 			src/parsing/env/env_find.c src/parsing/env/env_last.c \
-			src/parsing/env/env_manager.c 
+			src/parsing/env/env_manager.c \
+			src/parsing/env/gettersetter.c
 TEST 	= 	test/env/print_env.c
 SRCS = $(MAIN) $(UTILS) $(PARSING) $(TEST)
 

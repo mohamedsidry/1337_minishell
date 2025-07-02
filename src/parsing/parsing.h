@@ -6,7 +6,7 @@
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 22:04:01 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 00:43:31 by msidry           ###   ########.fr       */
+/*   Updated: 2025/07/02 07:40:49 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void    env_delete(t_env *envnode);
 void    env_clear(t_env **env);
 t_env   *env_last(t_env *env);
 t_env   *env_find(t_env *env, char *key);
-
+void    set_env_value(t_env *env, char *key, char *value);
+char    *get_env_value(t_env *env, char *key);
 #endif // PARSING_H

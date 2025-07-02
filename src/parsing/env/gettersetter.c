@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   typedef.h                                          :+:      :+:    :+:   */
+/*   gettersetter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 21:57:22 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/02 07:45:42 by msidry           ###   ########.fr       */
+/*   Created: 2025/07/02 07:20:18 by msidry            #+#    #+#             */
+/*   Updated: 2025/07/02 08:24:42 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TYPEDEF_H
-# define TYPEDEF_H
+#include "../../../include/minishell.h"
 
-typedef enum e_visibility
+
+void set_env_value(t_env *env, char *key, char *value)
 {
-	hidden,
-	visible,
-}	t_visibility;
+    t_env *target;
 
-typedef struct s_env
+    target = env_find(env, key);
+    if (!key)
+        return ;
+    free(target->value);
+    target->value = value;
+}
+
+char *get_env_value(t_env *env, char *key)
 {
-	char			*key;
-	char			*value;
-	t_visibility	visibility;
-	struct s_env	*next;
-}	t_env;
+    t_env *target;
 
-typedef enum e_task
-{
-	INIT = 1,
-	DELETE = 2,
-	UPDATE = 4,
-}	t_task;
-
-#endif // TYPEDEF_H
+    target = env_find(env, key);
+    if (!target)
+        return (NULL);
+    return  (target->value);
+}

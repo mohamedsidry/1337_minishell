@@ -6,7 +6,7 @@
 /*   By: msidry <msidry@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 22:52:00 by msidry            #+#    #+#             */
-/*   Updated: 2025/07/01 08:40:55 by msidry           ###   ########.fr       */
+/*   Updated: 2025/07/02 08:25:47 by msidry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 static void init_env(t_env **myenv, char *env[]);
 static void rest_env(t_env **myenv);
+static void update_env(t_env *myenv);
 
 void    env_manager(t_env **myenv, char *env[], t_task task)
 {
-    if (task == INIT)
+    if (task & INIT)
         init_env(myenv, env);
-    if (task == RESET)
+    if (task & UPDATE)
+        update_env(*myenv);
+    if (task & DELETE)
         rest_env(myenv);
 }
 
@@ -34,7 +37,6 @@ static void init_env(t_env **myenv, char *env[])
     idx = 0;
     if (!env)
         return;
-    printf("i was hererererer !\n");
     while (env[idx])
     {
         key = getkey(env[idx], '=');
@@ -57,4 +59,26 @@ static void init_env(t_env **myenv, char *env[])
 static void rest_env(t_env **myenv)
 {
     env_clear(myenv);
+}
+
+static void update_env(t_env *myenv)
+{
+    char *lvl = NULL;
+    char *path= NULL;
+    char *cwd;
+    char *path1;
+
+    if (!myenv)
+        return ;
+    lvl = get_env_value(myenv, "SHLVL");
+    if (lvl)
+        set_env_value(myenv, "SHLVL", ft_itoa(ft_atoi(lvl) + 1));
+    path = get_env_value(myenv, "PATH");
+    path1 = ft_strjoin(path, ":");
+    cwd = getcwd(NULL, -42);
+    if (path)
+        set_env_value(myenv, "PATH", ft_strjoin(path1, cwd));
+    set_env_value(myenv, "SHELL", ft_strdup(get_env_value(myenv, "_")));
+    free(path1);
+    free(cwd);
 }
