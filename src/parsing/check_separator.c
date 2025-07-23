@@ -6,12 +6,12 @@
 /*   By: anasszgh <anasszgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:49:27 by okamili           #+#    #+#             */
-/*   Updated: 2025/07/22 21:13:48 by anasszgh         ###   ########.fr       */
+/*   Updated: 2025/07/23 20:25:59 by anasszgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parsing.h"
-#include "../libft/libft.h"
+#include "../libft/libft.h" 
 
 static void	print_error(char *s)
 {
