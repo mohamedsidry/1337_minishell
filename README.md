@@ -32,9 +32,7 @@ Parsing is the action of turning user raw input string to tokens , expand, valid
 
 #### JOB TO BE DONE  :
 
-
-- [ ] Add your progress here !
-- ...
+***Add your progress here !***
 
 
 ### NOTES
