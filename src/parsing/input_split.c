@@ -6,7 +6,7 @@
 /*   By: anasszgh <anasszgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 23:40:21 by okamili           #+#    #+#             */
-/*   Updated: 2025/07/22 21:45:39 by anasszgh         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:47:44 by anasszgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,29 +54,30 @@ int	check_quotes(t_cmd *cmds)
 	return (0);
 }
 
-static int	command_length(char *str)
-{
-	int	length;
-	int	dquotes;
-	int	squotes;
+// static int	command_length(char *str)
+// {
+// 	int	length;
+// 	int	dquotes;
+// 	int	squotes;
 
-	length = 0;
-	dquotes = 0;
-	squotes = 0;
-	while (str[0])
-	{
-		length++;
-		if (ft_strchr(";|", str[0]) && (!(dquotes & 1) && !(squotes & 1)))
-			return (length);
-		dquotes += (!(squotes & 1) && str[0] == '"');
-		squotes += (!(dquotes & 1) && str[0] == '\'');
-		str++;
-	}
-	return (length);
-}
+// 	length = 0;
+// 	dquotes = 0;
+// 	squotes = 0;
+// 	while (str[0])
+// 	{
+// 		length++;
+// 		if (ft_strchr(";|", str[0]) && (!(dquotes & 1) && !(squotes & 1)))
+// 			return (length);
+// 		dquotes += (!(squotes & 1) && str[0] == '"');
+// 		squotes += (!(dquotes & 1) && str[0] == '\'');
+// 		str++;
+// 	}
+// 	return (length);
+// }
 
 t_cmd *input_split(char *input, int *err)
 {
+	(void)err;
     t_cmd *result = NULL;
     char *start = input;
     char *end = input;

@@ -6,7 +6,7 @@
 /*   By: anasszgh <anasszgh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:12:21 by okamili           #+#    #+#             */
-/*   Updated: 2025/07/22 21:25:29 by anasszgh         ###   ########.fr       */
+/*   Updated: 2025/07/23 04:45:44 by anasszgh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_list
 }	t_list;
 
 int		ft_isalpha(int ASCII_VALUE);
+int     ft_isspace(int c);
 size_t  ft_arrlen(char **arr);  // Changed from void** to char**
 void    *ft_realloc(void *ptr, size_t size);
 int		ft_isdigit(int c);
